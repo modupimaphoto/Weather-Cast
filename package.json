@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "axios": "^1.4.0",
+    "chalk": "^5.2.0",
+    "express": "^4.18.2",
+    "hbs": "^4.2.0",
+    "mongodb": "^5.6.0",
+    "pug": "^3.0.2",
+    "request": "^2.88.2",
+    "superheroes": "^3.0.0",
+    "sync-sql": "^1.0.2",
+    "validator": "^13.9.0",
+    "yargs": "^17.7.2"
+  }
+}
