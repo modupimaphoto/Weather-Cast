@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>WeatherCast</title>
+    <link rel="stylesheet" href="/css/style.css"/>
+    <link rel="icon" href="/img/logo.svg"/>
+  </head>
+  <body>
+      <header>
+          <img src="/img/logo.svg" alt="logo" />
+          <h1>
+            WeatherCast
+          </h1>
+      </header>
+      <div>
+        <form onsubmit="handleSubmit(event);">
+          <div class="form-control">
+            <input type="search" placeholder="Search for a place..." id="search"/>
+          </div>
+        </form>
+        <p class="error-msg" id="error-msg"></p>
+      </div>
+      <section>
+
+        <div class="content-header">
+          <h1 id="feels_like">16<sup>o</sup></h1>
+          <p id="main">Rain</p>
+          <p>Moderate Rain</p>
+          <p>
+            10<sup>o</sup>/ 22<sup>o</sup> C
+          </p>
+        </div>
+
+        <div class="sub-content">
+          <div>
+            <h2>Temp</h2>
+            <p>298.48</p>
+          </div>
+          <div>
+            <h2>Feels_like</h2>
+            <p>298.74</p>
+          </div>
+          <div>
+            <h2>temp_min</h2>
+            <p>297.56</p>
+          </div>
+          <div>
+            <h2>temp_max</h2>
+            <p>300.05</p>
+          </div>
+          <div>
+            <h2>pressure</h2>
+            <p>1015</p>
+          </div>
+        </div>
+      </section>
+      <script src="/js/index.js"></script>
+  </body>
+</html>
