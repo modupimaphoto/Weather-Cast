@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+* {
+  box-sizing: border-box;
+}
+body{
+  font-family: 'Poppins', sans-serif;
+  background: url("../img/cool-background.png") no-repeat;
+}
+header {
+  text-align: center;
+  font-size: 1.3em;
+}
+header h1{
+  display: inline-block;
+}
+header img {
+  width: 50px;
+  height: auto;
+}
+.form-control {
+  text-align: center;
+}
+.form-control input {
+  padding: 16px 24px;
+  width: 35%;
+  border-radius: 30px;
+  border:2px solid white;
+}
+.form-control input::placeholder {
+  color: grey;
+  font-size: 1.2em;
+}
+.content-header {
+  line-height: 10px;
+  text-align: center;
+}
+.content-header h1{
+  font-size: 5em;
+}
+.content-header p{
+  font-size: 1.5em;
+}
+.content-header p:last-child{
+  font-size: 1.2em;
+}
+
+.sub-content {
+  display: flex;
+  flex-direction: row;
+}
+.sub-content div {
+  width: 100%;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: white;
+  margin: 25px;
+  line-height: 10px;
+}
+
+.page-wrappper {
+  text-align: center;
+}
+.page-wrappper h1 {
+  font-size: 3.5em;
+}
+.page-wrappper p {
+  font-size: 2.5em;
+}
+.page-wrappper a {
+  font-size: 1.5em;
+}
+@media screen and (max-width:  769px) {
+  .form-control input {
+    width: 80%;
+  }
+  .content-wrapper{
+    margin: 0 50px 0 50px;
+  }
+  .content-header{
+    margin-bottom: 60px;
+  }
+  .sub-content {
+    flex-direction: column;
+  }
+  .sub-content div {
+    margin: 0;
+    margin-bottom: 10px;
+    line-height: 10px;
+  }
+  .page-wrapper{
+    padding-top: 10%;
+  }
+  .page-wrappper h1 {
+    font-size: 3em;
+  }
+  .page-wrappper p {
+    font-size: 2em;
+  }
+  .page-wrappper a {
+    font-size: 1.3em;
+  }
+}
