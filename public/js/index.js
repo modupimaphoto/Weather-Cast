@@ -1,14 +1,13 @@
-const error_msg = document.getElementById("error-msg");
+const error = document.getElementById("error");
 
 const handleSubmit = (event) => {
   event.preventDefault();
 
   const search = document.getElementById("search");
   if(search.value.trim() === ""){
-    error_msg.innerHTML = "Invalid input.";
+    error.innerHTML = "Invalid input.";
   }else {
-      error_msg.innerHTML = "";
-      search.value.innerHTML = "";
+      error.innerHTML = "";
       geoCoding(search.value);
   }
 }
@@ -20,8 +19,9 @@ const geoCoding = async(place) => {
   const res = await fetch(url);
   const data = await res.json();
   if(data.length === 0){
-    error_msg = "Place not found";
+    error.innerHTML = "Place not found";
   }else {
+    search.value = "";
     let lat = data[0].lat;
     let lon = data[0].lon;
     getWeather(lat, lon);
@@ -29,16 +29,35 @@ const geoCoding = async(place) => {
 }
 
 const getWeather = async(lat, lon) => {
+  const place_name = document.getElementById("place-name");
+  const feels_like = document.getElementById("feels_like");
+  const main = document.getElementById("main");
+  const main_des = document.getElementById("main-description");
+  const temp_min = document.getElementById("temp_min");
+  const temp_max = document.getElementById("temp_max");
+  const details = document.getElementById("details");
+
   const apiKey = "956064ce425f845da14fd8bb7a6e947a";
   const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`;
   let res = await fetch(url);
   let data = await res.json();
-  console.log(data);
-  console.log(data.coord);
-  console.log(data.weather);
 
-  console.log(data.weather[0].main);
-  console.log(data.weather[0].description);
+  place_name.innerHTML = data.name;
+  feels_like.innerHTML = data.main.feels_like;
+  main.innerHTML = data.weather[0].main;
+  main_des.innerHTML = data.weather[0].description;
+  temp_min.innerHTML = data.main.temp_min;
+  temp_max.innerHTML = data.main.temp_max;
 
-  console.log(data.main);
+  let detail = ``;
+  for(const key in data.main){
+    detail += `
+    <div class="col-4 m-1 detail">
+      <h5>${key}</h5>
+      <p>${data.main[key]}</p>
+    </div>`;
+
+  }
+  details.innerHTML = detail;
+
 }
