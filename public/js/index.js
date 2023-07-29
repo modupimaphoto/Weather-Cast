@@ -1,4 +1,17 @@
+
 const error = document.getElementById("error");
+window.onload = () => {
+  if(navigator.geolocation){
+    navigator.geolocation.getCurrentPosition((position) => {
+      getWeather(position.coords.latitude,position.coords.latitude);
+    }, (error) => {
+      error.innerHTML = `${error.message}.`;
+    });
+  }else{
+    error.innerHTML = "Geolocation not supported";
+  }
+}
+
 
 const handleSubmit = (event) => {
   event.preventDefault();
@@ -42,7 +55,10 @@ const getWeather = async(lat, lon) => {
   let res = await fetch(url);
   let data = await res.json();
 
-  place_name.innerHTML = data.name;
+
+  if(data.name === '')   place_name.innerHTML = "Unknown";
+  else place_name.innerHTML = data.name;
+
   feels_like.innerHTML = data.main.feels_like;
   main.innerHTML = data.weather[0].main;
   main_des.innerHTML = data.weather[0].description;
@@ -52,7 +68,7 @@ const getWeather = async(lat, lon) => {
   let detail = ``;
   for(const key in data.main){
     detail += `
-    <div class="col-4 m-1 detail">
+    <div class="col-4 col-md-3 m-1 detail">
       <h5>${key}</h5>
       <p>${data.main[key]}</p>
     </div>`;
