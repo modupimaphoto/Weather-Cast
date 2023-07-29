@@ -17,22 +17,46 @@ header img {
   width: 50px;
   height: auto;
 }
-.form-control {
-  text-align: center;
+/*
+  ##############################
+    Form
+  ##############################
+*/
+
+.input-group img {
+  width: 40px;
+  height: auto;
 }
-.form-control input {
+.input-group {
+  background-color: white;
+    width: 35%!important;
+    border:2px solid white;
+    border-radius: 30px;
+    margin: auto;
+    transition: 0.8s
+}
+
+.input-group:hover {
+  border: 2px red solid;
+}
+.input-group input {
   padding: 16px 24px;
-  width: 35%;
+  width: 85%;
   border-radius: 30px;
-  border:2px solid white;
+  border: none;
+  outline: none
 }
 .form-control input::placeholder {
   color: grey;
   font-size: 1.2em;
 }
+/*
+  ##############################
+    Content Header
+  ##############################
+*/
 .content-header {
-  line-height: 10px;
-  text-align: center;
+  line-height: 20px;
 }
 .content-header h1{
   font-size: 5em;
@@ -44,19 +68,19 @@ header img {
   font-size: 1.2em;
 }
 
-.sub-content {
-  display: flex;
-  flex-direction: row;
+#error{
+  font-size: 1.5em
 }
-.sub-content div {
-  width: 100%;
-  padding: 20px;
-  border-radius: 8px;
-  background-color: white;
-  margin: 25px;
-  line-height: 10px;
+.detail {
+  background-color: rgba(0,0, 0, .5);
+  padding: 10px;
+  border-radius: 18px;
+  text-align: center;
+  color: white;
 }
-
+.detail p {
+  font-size: 1.5em;
+}
 .page-wrappper {
   text-align: center;
 }
@@ -69,23 +93,9 @@ header img {
 .page-wrappper a {
   font-size: 1.5em;
 }
-@media screen and (max-width:  769px) {
-  .form-control input {
-    width: 80%;
-  }
-  .content-wrapper{
-    margin: 0 50px 0 50px;
-  }
-  .content-header{
-    margin-bottom: 60px;
-  }
-  .sub-content {
-    flex-direction: column;
-  }
-  .sub-content div {
-    margin: 0;
-    margin-bottom: 10px;
-    line-height: 10px;
+@media screen and (max-width:  768px) {
+  .input-group {
+      width: 85%!important;
   }
   .page-wrapper{
     padding-top: 10%;
