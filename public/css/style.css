@@ -95,7 +95,7 @@ header img {
 }
 @media screen and (max-width:  768px) {
   .input-group {
-      width: 85%!important;
+      width: 95%!important;
   }
   .page-wrapper{
     padding-top: 10%;
