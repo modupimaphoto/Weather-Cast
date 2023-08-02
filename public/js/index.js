@@ -65,15 +65,24 @@ const getWeather = async(lat, lon) => {
   temp_min.innerHTML = data.main.temp_min;
   temp_max.innerHTML = data.main.temp_max;
 
+  const {pressure, humidity, sea_level} = data.main;
+
   let detail = ``;
-  for(const key in data.main){
-    detail += `
-    <div class="col-4 col-md-3 m-1 detail">
-      <h5>${key}</h5>
-      <p>${data.main[key]}</p>
-    </div>`;
+  detail += `
+  <div class="detail">
+    <h5>Pressure</h5>
+    <p>${pressure}</p>
+  </div>`;
+  detail += `
+  <div class="detail">
+    <h5>Humidity</h5>
+    <p>${humidity}%</p>
+  </div>`;
+  detail += `
+  <div class="detail">
+    <h5>Sea level</h5>
+    <p>${sea_level}</p>
+  </div>`;
 
-  }
   details.innerHTML = detail;
-
 }
