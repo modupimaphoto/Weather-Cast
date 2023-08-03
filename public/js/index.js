@@ -25,7 +25,7 @@ const handleSubmit = (event) => {
 const geoCoding = async(place) => {
   try {
     const apiKey = "956064ce425f845da14fd8bb7a6e947a";
-    const url = `http://api.openweathermap.org/geo/1.0/direct?q=${place}&appid=${apiKey}`;
+    const url = `https://api.openweathermap.org/geo/1.0/direct?q=${place}&appid=${apiKey}`;
 
     const res = await fetch(url);
     const data = await res.json();
