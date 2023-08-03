@@ -5,6 +5,7 @@
 body{
   font-family: 'Poppins', sans-serif;
   background: url("../img/cool-background.png") no-repeat;
+  background-size: cover;
 }
 header {
   text-align: center;
@@ -57,6 +58,7 @@ header img, footer img{
 */
 .content-header {
   line-height: 20px;
+  color: white;
 }
 .content-header h1{
   font-size: 5em;
@@ -81,6 +83,10 @@ header img, footer img{
 }
 .detail p {
   font-size: 1.5em;
+}
+.detail img {
+  width: 50px;
+  height: auto;
 }
 .page-wrappper {
   text-align: center;

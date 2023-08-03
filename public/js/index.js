@@ -1,4 +1,3 @@
-
 const error = document.getElementById("error");
 window.onload = () => {
   if(navigator.geolocation){
@@ -12,10 +11,8 @@ window.onload = () => {
   }
 }
 
-
 const handleSubmit = (event) => {
   event.preventDefault();
-
   const search = document.getElementById("search");
   if(search.value.trim() === ""){
     error.innerHTML = "Invalid input.";
@@ -26,18 +23,22 @@ const handleSubmit = (event) => {
 }
 
 const geoCoding = async(place) => {
-  const apiKey = "956064ce425f845da14fd8bb7a6e947a";
-  const url = `http://api.openweathermap.org/geo/1.0/direct?q=${place}&appid=${apiKey}`;
+  try {
+    const apiKey = "956064ce425f845da14fd8bb7a6e947a";
+    const url = `http://api.openweathermap.org/geo/1.0/direct?q=${place}&appid=${apiKey}`;
 
-  const res = await fetch(url);
-  const data = await res.json();
-  if(data.length === 0){
-    error.innerHTML = "Place not found";
-  }else {
-    search.value = "";
-    let lat = data[0].lat;
-    let lon = data[0].lon;
-    getWeather(lat, lon);
+    const res = await fetch(url);
+    const data = await res.json();
+    if(data.length === 0){
+      error.innerHTML = "Place not found";
+    }else {
+      search.value = "";
+      let lat = data[0].lat;
+      let lon = data[0].lon;
+      getWeather(lat, lon);
+    }
+  }catch(error) {
+    error.innerHTML = error.message;
   }
 }
 
@@ -56,7 +57,7 @@ const getWeather = async(lat, lon) => {
   let data = await res.json();
 
 
-  if(data.name === '')   place_name.innerHTML = "Unknown";
+  if(data.name === '')  place_name.innerHTML = "Unknown";
   else place_name.innerHTML = data.name;
 
   feels_like.innerHTML = data.main.feels_like;
@@ -69,19 +70,28 @@ const getWeather = async(lat, lon) => {
 
   let detail = ``;
   detail += `
-  <div class="detail">
-    <h5>Pressure</h5>
+  <div class="detail col-md-4">
+    <h5>
+      <img src="public/img/pressure.svg" alt="Pressure icon" />
+      Pressure
+    </h5>
     <p>${pressure}</p>
   </div>`;
   detail += `
-  <div class="detail">
-    <h5>Humidity</h5>
+  <div class="detail col-md-4">
+    <h5>
+      <img src="public/img/humidity.svg" alt="Humidity icon" />
+      Humidity
+    </h5>
     <p>${humidity}%</p>
   </div>`;
   detail += `
-  <div class="detail">
-    <h5>Sea level</h5>
-    <p>${sea_level}</p>
+  <div class="detail col-md-4">
+    <h5>
+      <img src="public/img/sea-level.svg" alt="Sea level icon" />
+      Sea level
+    </h5>
+    <p>${(sea_level == undefined) ? "Not avaible" : sea_level}</p>
   </div>`;
 
   details.innerHTML = detail;
