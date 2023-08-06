@@ -60,11 +60,11 @@ const getWeather = async(lat, lon) => {
   if(data.name === '')  place_name.innerHTML = "Unknown";
   else place_name.innerHTML = data.name;
 
-  feels_like.innerHTML = data.main.feels_like;
+  feels_like.innerHTML = `${data.main.feels_like} <sup>o</sup>`;
   main.innerHTML = data.weather[0].main;
   main_des.innerHTML = data.weather[0].description;
-  temp_min.innerHTML = data.main.temp_min;
-  temp_max.innerHTML = data.main.temp_max;
+  temp_min.innerHTML = `${data.main.temp_min} <sup>o</sup>`;
+  temp_max.innerHTML = `${data.main.temp_max} <sup>o</sup>`;
 
   const {pressure, humidity, sea_level} = data.main;
 
