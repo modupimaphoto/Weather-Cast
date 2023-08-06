@@ -18,20 +18,17 @@
           </h1>
       </header>
       <div class="mb-4">
-
         <form onsubmit="handleSubmit(event);">
           <div class="input-group mb-3">
-            <div class="input-group-prepend p-2">
+            <div class="input-group-prepend p-1">
               <img src="public/img/search.svg" alt="search" />
             </div>
             <input type="search" placeholder="Search for a place..." id="search"/>
           </div>
         </form>
-
-
         <p class="text-center" id="error"></p>
       </div>
-      <section class="container pt-5">
+      <section class="container pt-2">
         <div class="text-center p-5 p-md-0">
           <div class="content-header">
             <h3>
@@ -40,19 +37,18 @@
             </h3>
             <h1>
               <span id="feels_like"></span>
-              <sup>o</sup>
             </h1>
             <p id="main"></p>
             <p class="text-capitalize" id="main-description"></p>
             <p>
-              <span id="temp_min"></span> <sup>o</sup>
-                / <span id="temp_max"></span> <sup>o</sup> C
+              <span id="temp_min"></span>
+                / <span id="temp_max"></span>
             </p>
           </div>
         </div>
 
         <div>
-          <div class="p-5 row" id="details"></div>
+          <div class="p-3 row" id="details"></div>
         </div>
 
       </section>
